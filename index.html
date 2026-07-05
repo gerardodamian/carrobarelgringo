@@ -1,248 +1,239 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html class="dark" lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Carro Bar El Gringo — comida y bebidas en Ruta Nacional 40, Salicas, San Blas de los Sauces, La Rioja." />
-    <title>Carro Bar El Gringo — Ruta Nacional 40</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>CARRO BAR EL GRINGO | El Gringo Carro Bar</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
-<body>
-    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-        <defs>
-
-            <symbol id="icon-milanesa" viewBox="0 0 100 100">
-                <ellipse cx="46" cy="54" rx="30" ry="20" fill="#ffffff" stroke="#ece3d7" stroke-width="1.5" />
-                <ellipse cx="46" cy="54" rx="30" ry="20" fill="none" stroke="#e0a638" stroke-width="2.5" stroke-dasharray="3 4" />
-                <g stroke="#ef5a35" stroke-width="2.5" stroke-linecap="round">
-                    <line x1="72" y1="30" x2="80" y2="20" />
-                    <line x1="76" y1="35" x2="85" y2="25" />
-                    <line x1="68" y1="26" x2="76" y2="16" />
-                </g>
-                <g stroke="#e0a638" stroke-width="3" stroke-linecap="round">
-                    <line x1="18" y1="72" x2="24" y2="85" />
-                    <line x1="28" y1="75" x2="33" y2="88" />
-                    <line x1="38" y1="76" x2="42" y2="89" />
-                </g>
-            </symbol>
-
-            <symbol id="icon-hamburguesa" viewBox="0 0 100 100">
-                <path d="M16 40 Q50 10 84 40 Z" fill="#e0a638" />
-                <rect x="14" y="42" width="72" height="9" rx="4" fill="#ef5a35" />
-                <rect x="14" y="54" width="72" height="10" rx="2" fill="#cfe0ab" />
-                <rect x="14" y="67" width="72" height="9" rx="4" fill="#8a4b2e" />
-                <rect x="14" y="79" width="72" height="10" rx="5" fill="#e0a638" />
-                <g fill="#fff" opacity="0.8"><circle cx="34" cy="25" r="1.8" /><circle cx="50" cy="18" r="1.8" /><circle cx="66" cy="25" r="1.8" /></g>
-            </symbol>
-
-            <symbol id="icon-choripan" viewBox="0 0 100 100">
-                <rect x="10" y="52" width="80" height="22" rx="11" fill="#ffffff" stroke="#ece3d7" stroke-width="1.5" />
-                <rect x="17" y="41" width="66" height="24" rx="12" fill="#8a4b2e" />
-                <path d="M21 44 Q50 30 79 44" fill="none" stroke="#e0a638" stroke-width="3" stroke-linecap="round" />
-                <g stroke="#ef5a35" stroke-width="2" stroke-linecap="round">
-                    <line x1="28" y1="72" x2="24" y2="84" />
-                    <line x1="45" y1="74" x2="42" y2="87" />
-                    <line x1="62" y1="74" x2="60" y2="87" />
-                </g>
-            </symbol>
-
-            <symbol id="icon-papas" viewBox="0 0 100 100">
-                <path d="M28 40 L72 40 L63 90 L37 90 Z" fill="#ef5a35" />
-                <g stroke="#ffe9c9" stroke-width="4.5" stroke-linecap="round">
-                    <line x1="39" y1="28" x2="37" y2="68" />
-                    <line x1="50" y1="22" x2="49" y2="72" />
-                    <line x1="61" y1="28" x2="62" y2="68" />
-                </g>
-            </symbol>
-
-            <symbol id="icon-gaseosa" viewBox="0 0 100 100">
-                <path d="M42 12 h16 v14 l7 10 v52 a5 5 0 0 1 -5 5 h-20 a5 5 0 0 1 -5 -5 v-52 l7 -10 z" fill="#ffffff" stroke="#ece3d7" stroke-width="1.5" />
-                <rect x="37" y="46" width="26" height="32" rx="2" fill="#ef5a35" />
-                <rect x="40" y="10" width="20" height="6" rx="2" fill="#8a4b2e" />
-            </symbol>
-
-            <symbol id="icon-cerveza" viewBox="0 0 100 100">
-                <path d="M29 30 h34 v52 a6 6 0 0 1 -6 6 h-22 a6 6 0 0 1 -6 -6 z" fill="#e0a638" />
-                <path d="M29 34 h34 v9 h-34 z" fill="#ffffff" stroke="#ece3d7" stroke-width="1" />
-                <path d="M63 42 h8 a6 6 0 0 1 6 6 v10 a6 6 0 0 1 -6 6 h-8 z" fill="none" stroke="#e0a638" stroke-width="4" />
-            </symbol>
-
-            <symbol id="icon-pin" viewBox="0 0 24 24">
-                <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" />
-                <circle cx="12" cy="9.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8" />
-            </symbol>
-
-            <symbol id="icon-clock" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8" />
-                <path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-            </symbol>
-
-            <symbol id="icon-whatsapp" viewBox="0 0 24 24">
-                <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" />
-                <path d="M8.5 8.7c-.3.6-.6 1.5.2 2.9 1 1.9 2.7 3.4 4.6 4 1.4.4 2.1.1 2.6-.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-            </symbol>
-
-            <symbol id="art-carro" viewBox="0 0 400 320">
-                <circle cx="300" cy="70" r="60" fill="#fde7dd" />
-                <circle cx="300" cy="70" r="34" fill="#fbcdb6" />
-                <path d="M0 195 L70 130 L135 195 Z" fill="#f3ddc7" />
-                <path d="M95 195 L185 100 L265 195 Z" fill="#f7e6d3" />
-                <rect x="0" y="230" width="400" height="90" fill="#e9d9c3" />
-                <rect x="0" y="230" width="400" height="6" fill="#d8c3a6" />
-                <g fill="#ffffff">
-                    <rect x="20" y="270" width="30" height="8" rx="2" />
-                    <rect x="90" y="270" width="30" height="8" rx="2" />
-                    <rect x="160" y="270" width="30" height="8" rx="2" />
-                    <rect x="230" y="270" width="30" height="8" rx="2" />
-                    <rect x="300" y="270" width="30" height="8" rx="2" />
-                    <rect x="370" y="270" width="30" height="8" rx="2" />
-                </g>
-                <g>
-                    <rect x="30" y="150" width="4" height="70" fill="#c9b696" />
-                    <rect x="8" y="128" width="52" height="32" rx="4" fill="#e0a638" stroke="#8a4b2e" stroke-width="2" />
-                    <text x="34" y="150" font-family="Poppins, sans-serif" font-weight="800" font-size="15" fill="#3b2a17" text-anchor="middle">RN 40</text>
-                </g>
-                <g transform="translate(155,148)">
-                    <rect x="0" y="42" width="140" height="55" rx="10" fill="#ffffff" />
-                    <rect x="0" y="42" width="140" height="16" rx="8" fill="#ef5a35" />
-                    <rect x="10" y="64" width="35" height="26" rx="4" fill="#fde7dd" />
-                    <rect x="55" y="64" width="35" height="26" rx="4" fill="#fde7dd" />
-                    <rect x="-10" y="22" width="160" height="10" rx="5" fill="#e0a638" />
-                    <circle cx="20" cy="102" r="12" fill="#201b15" stroke="#e0a638" stroke-width="3" />
-                    <circle cx="120" cy="102" r="12" fill="#201b15" stroke="#e0a638" stroke-width="3" />
-                    <rect x="100" y="64" width="30" height="26" rx="4" fill="#3b2a17" />
-                    <circle cx="115" cy="77" r="6" fill="#ef5a35" />
-                </g>
-            </symbol>
-
-        </defs>
-    </svg>
-
-    <header class="site-header">
-        <div class="wrap">
-            <a class="brand" href="index.html">
-                <img src="img/logo-carro-bar-chico.jpeg" alt="Logo Carro Bar El Gringo"
-                     onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-fallback',textContent:'EG'}))" />
-                <span class="brand-text">
-                    <span class="brand-name">El Gringo</span>
-                    <span class="brand-tag">Carro Bar · Ruta 40</span>
-                </span>
-            </a>
-            <div class="header-actions">
-                <a class="icon-btn" href="https://wa.me/5493804683331" target="_blank" rel="noopener" aria-label="WhatsApp">
-                    <svg><use href="#icon-whatsapp" /></svg>
-                </a>
-                <a class="btn btn-primary btn-sm" href="menu.html">Ver menú</a>
-            </div>
+<body class="bg-charcoal-black text-on-surface font-body-md">
+    <div class="grain-overlay"></div>
+    <!-- TopAppBar -->
+    <header class="site-header fixed top-0 w-full z-50 bg-charcoal-black/90 backdrop-blur-md border-b-2 border-grill-smoke shadow-[0_4px_0_0_rgba(0,0,0,0.4)] flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 transition-transform">
+        <div class="flex items-center gap-3">
+            <img alt="El Gringo Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvK1BujoKjIgYX10p5iEyVrFHVpiOPGehXgnRKGQ_gxO7-ij-kiAsqDVMl-KWAITHF7EL01S-EHm85F4QNW7CEQYnu_Rxtr6NVghGAvsa063ef_vD2AvMTxJAE0_-0A7NTHSSJfDX7C4Rb2KpJoGovnm-PPsd7b9DizdwEEe-Rq1YVSQYJa8WGLKTYK309XbIWxvUCHk28BulLkNflMerFt95ZrddLtl7hrRWKoM3IS8N46Endv91zSnxg">
+            <span class="font-display-hero text-headline-lg-mobile brand-fire tracking-tighter">CARRO BAR EL GRINGO</span>
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="text-primary font-label-mono text-label-mono" href="menu.html">MENÚ</a>
+            <a class="text-paper-white font-label-mono text-label-mono hover:text-secondary transition-colors" href="#info">LOCATION</a>
+            <a class="text-paper-white font-label-mono text-label-mono hover:text-secondary transition-colors" href="#info">HOURS</a>
+            <a class="bg-primary-container text-on-primary-container px-6 py-2 font-label-mono text-label-mono rounded-lg active:scale-95 transition-transform inline-block text-center" href="menu.html">ORDER NOW</a>
+            <button type="button" data-cart-open class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-high text-paper-white hover:bg-primary-container transition-colors" aria-label="Ver carrito">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span data-cart-badge class="absolute -top-1 -right-1 bg-flame-red text-white text-[10px] w-5 h-5 rounded-full items-center justify-center border border-charcoal-black" style="display:none">0</span>
+            </button>
+        </div>
+        <div class="md:hidden flex items-center gap-4">
+            <img src="https://lh3.googleusercontent.com/aida/AP1WRLvK1BujoKjIgYX10p5iEyVrFHVpiOPGehXgnRKGQ_gxO7-ij-kiAsqDVMl-KWAITHF7EL01S-EHm85F4QNW7CEQYnu_Rxtr6NVghGAvsa063ef_vD2AvMTxJAE0_-0A7NTHSSJfDX7C4Rb2KpJoGovnm-PPsd7b9DizdwEEe-Rq1YVSQYJa8WGLKTYK309XbIWxvUCHk28BulLkNflMerFt95ZrddLtl7hrRWKoM3IS8N46Endv91zSnxg" alt="El Gringo Logo" class="h-8 w-8 object-contain">
         </div>
     </header>
-
-    <main>
-        <section class="hero">
-            <div class="wrap">
+    <!-- Imagen decorativa del carro justo debajo del header -->
+    <div class="hero-image-wrap">
+        <div class="wrap">
+            <img src="img/elcarro.png" alt="El Carro" class="hero-image" onerror="this.onerror=null;this.src='file:///C:/Users/germo/Desktop/Nueva carpeta/proyectos/propuestas/el-carro-bar/img/elcarro.png'" />
+        </div>
+    </div>
+    <main class="pt-16 pb-24 md:pb-0">
+        <!-- Hero Section -->
+        <section class="relative h-[85vh] flex items-end md:items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="w-full h-full bg-cover bg-center scale-105 filter brightness-50" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjClc6RW1MXMrmLTwwa8zfzD3n0nWZuV_SiDDXPiuleUOxAcT7bB2VyWbPohimql5ktq33XmGx38ru7MepuB9v50ZJmH3qZLbgSzSi9Fw1cZvf-rd183jPqLEmVEFbatm3ZE8b7Ezq6nYmriEJEzDzA6SRkLGIuivTXGpGIFJRK_Mu9DYpkGFzZyrrFuvhvhMxjqz1i0ckU8lwJ-7flm9QyzjUc64dHrG8Soaebfli72te_24l9Nza')"></div>
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-12 md:pb-0">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 bg-primary-container/20 border border-primary/30 px-3 py-1 rounded mb-6">
+                        <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+                        <span class="font-label-mono text-label-mono text-primary uppercase">El carro más conocido de Salicas</span>
+                    </div>
+                    <h1 class="font-display-hero text-display-hero md:text-[84px] text-paper-white leading-none mb-6">
+                        COMIDA DE RUTA, <br>
+                        <span class="text-secondary">HECHA AL MOMENTO</span>
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">
+                        Milanesas, hamburguesas y choripanes recién hechos en plena RN 40. Sabor auténtico para el camino.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a class="bg-primary-container text-on-primary-container font-label-mono text-label-mono px-10 py-4 rounded-lg text-center rustic-border hover:bg-secondary-container transition-all active:scale-95" href="menu.html">
+                            VER MENÚ
+                        </a>
+                        <a class="border-2 border-paper-white text-paper-white font-label-mono text-label-mono px-10 py-4 rounded-lg text-center hover:bg-paper-white/10 transition-all" href="https://wa.me/5493804683331">
+                            WHATSAPP
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Road Line Divider -->
+            <div class="absolute bottom-0 left-0 w-full h-1 border-b-4 border-dashed border-secondary/30"></div>
+        </section>
+        <!-- Featured Section: Bento Grid -->
+        <section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="menu">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                 <div>
-                    <span class="eyebrow">📍 Ruta Nacional 40 · Salicas</span>
-                    <h1>Comida de ruta,<br>hecha al <span>momento</span></h1>
-                    <p class="lead">Milanesas, hamburguesas y choripanes recién hechos en el carro más conocido de Salicas. Pedí por WhatsApp: retiro en el local o delivery.</p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="menu.html">Ver menú y pedir</a>
-                        <a class="btn btn-outline" href="https://wa.me/5493804683331" target="_blank" rel="noopener">Escribinos</a>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-paper-white uppercase">Lo más pedido</h2>
+                    <div class="h-1 w-20 bg-primary-container mt-2"></div>
+                </div>
+                <p class="font-body-md text-on-surface-variant max-w-md">Elegí, armá tu pedido y confirmalo por WhatsApp en un par de toques.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <!-- Milanesa Card -->
+                <div class="md:col-span-8 group bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-grill-smoke hover:border-primary/50 transition-all">
+                    <div class="grid grid-cols-1 md:grid-cols-2 h-full">
+                        <div class="h-64 md:h-full overflow-hidden">
+                            <img alt="Milanesa con papas" class="w-full h-full w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img\WhatsApp Image 2026-05-28 at 12.06.38.jpeg">
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <span class="font-label-mono text-label-mono text-secondary mb-2">CLÁSICO RUTA 40</span>
+                            <span class="inline-block bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">🥇 ESPECIALIDAD</span>
+                            <h3 class="font-item-title text-3xl text-paper-white mb-4">Barroluco</h3>
+                            <p class="font-body-md text-on-surface-variant mb-6">Hecho con la mejor carne de ternera, queso, tomate, jamon, queso, mayonesa y el mejor pan de miga.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="font-price-tag text-4xl font-black text-orange-500">$20.000</span>
+                                <button type="button" class="btn btn-primary" data-add-to-cart="15">🛒 AGREGAR</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-art">
-                    <svg viewBox="0 0 400 320"><use href="#art-carro" /></svg>
+                <!-- Hamburguesa Card -->
+                <div class="md:col-span-4 group bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-grill-smoke hover:border-primary/50 transition-all flex flex-col">
+                    <div class="h-72 overflow-hidden bg-black">
+                        <img alt="Hamburguesa clásica" class="w-full h-full w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="img\WhatsApp Image 2026-07-04 at 15.40.28 (1).jpeg">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="inline-block bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">🔥 EL MÁS PEDIDO</span>
+                        <h3 class="font-item-title text-2xl text-paper-white mb-2">Hamburguesa clásica + Coca cola</h3>
+                        <p class="font-body-md text-on-surface-variant mb-6 text-sm">Pan artesanal, medallón de carne, lechuga capuchina, tomate y queso fundido.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="font-price-tag text-3xl font-black text-orange-500">$16000</span>
+                            <button type="button" class="btn btn-primary" data-add-to-cart="6">🛒 AGREGAR</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Choripan Card -->
+                <div class="md:col-span-4 group bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-grill-smoke hover:border-primary/50 transition-all flex flex-col">
+                    <div class="h-72 overflow-hidden bg-black">
+                        <img alt="pizza-ternera" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="img\WhatsApp Image 2026-07-04 at 15.40.25.jpeg">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="inline-block bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">🔥 EL MÁS PEDIDO</span>
+                        <h3 class="font-item-title text-2xl text-paper-white mb-2">Pizza de Ternera</h3>
+                        <p class="font-body-md text-on-surface-variant mb-6 text-sm">La mejor pizza combinada con la carne mas tierna y sabrosa.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="font-price-tag text-3xl font-black text-orange-500">$12.500</span>
+                            <button type="button" class="btn btn-primary" data-add-to-cart="9">🛒 AGREGAR</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Promo/Drink Card -->
+                <div class="md:col-span-8 bg-surface-container rounded-xl p-8 border border-dashed border-primary/40 flex flex-col md:flex-row items-center gap-8 justify-between relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="font-item-title text-3xl text-paper-white mb-2 uppercase">¡Para bajar la comida!</h3>
+                        <p class="font-body-md text-on-surface-variant mb-4">Cerveza lata 350ml bien helada o gaseosas de línea.</p>
+                        <span class="font-price-tag text-4xl text-primary">$300</span>
+                    </div>
+                    <div class="relative z-10">
+                        <button type="button" class="btn border-2 border-primary text-primary bg-transparent px-8 py-4 rounded-lg hover:bg-primary hover:text-on-primary transition-all" data-add-to-cart="14">AGREGAR AL CARRITO</button>
+                    </div>
+                    <!-- Decorative Element -->
+                    <span class="absolute -right-10 -bottom-10 material-symbols-outlined text-[180px] text-primary/5 rotate-12">local_bar</span>
                 </div>
             </div>
         </section>
-
-        <section class="info-strip">
-            <div class="info-card">
-                <span class="ic"><svg><use href="#icon-pin" /></svg></span>
-                <div><div class="label">Dónde estamos</div><div class="value">Ruta Nacional 40, Salicas<br>San Blas de los Sauces, La Rioja</div></div>
-            </div>
-            <div class="info-card">
-                <span class="ic"><svg><use href="#icon-clock" /></svg></span>
-                <div><div class="label">Atención</div><div class="value">Todos los días<br>consultá horario por WhatsApp</div></div>
-            </div>
-            <div class="info-card">
-                <span class="ic"><svg><use href="#icon-whatsapp" /></svg></span>
-                <div><div class="label">Pedidos</div><div class="value">3804 68-3331<br>retiro o delivery</div></div>
-            </div>
-        </section>
-
-        <section class="wrap">
-            <h2 class="section-title">Lo más pedido</h2>
-            <p class="section-sub">Una probadita del menú. Elegí, armá tu pedido y confirmalo por WhatsApp en un par de toques.</p>
-            <div class="dish-grid">
-                <div class="dish-card">
-                    <div class="dish-media"><svg><use href="#icon-milanesa" /></svg></div>
-                    <div class="dish-body">
-                        <h3>Milanesa con papas</h3>
-                        <p>Milanesa de carne con guarnición de papas fritas.</p>
-                        <div class="dish-foot"><span class="price">$1200</span></div>
+        <!-- Information Bento -->
+        <section class="bg-surface-container-low py-20" id="info">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-grill-smoke flex items-center justify-center mb-6 text-primary shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">location_on</span>
+                    </div>
+                    <h4 class="font-item-title text-xl text-paper-white mb-2 uppercase">Donde estamos</h4>
+                    <p class="font-body-md text-on-surface-variant">Ruta Nacional 40, Salicas<br>San Blas de los Sauces, La Rioja</p>
+                    <a class="text-primary font-label-mono text-[10px] mt-4 hover:underline" href="https://maps.google.com/?q=Ruta+Nacional+40,+Salicas,+San+Blas+de+los+Sauces,+La+Rioja" target="_blank" rel="noopener">VER EN MAPA</a>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-grill-smoke flex items-center justify-center mb-6 text-primary shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">schedule</span>
+                    </div>
+                    <h4 class="font-item-title text-xl text-paper-white mb-2 uppercase">Atención</h4>
+                    <p class="font-body-md text-on-surface-variant">Todos los días<br>Consultá horario por WhatsApp</p>
+                    <span class="mt-4 px-3 py-1 bg-secondary-container/20 text-secondary text-[10px] font-label-mono rounded border border-secondary/30">ABIERTO AHORA</span>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-grill-smoke flex items-center justify-center mb-6 text-primary shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">add_shopping_cart</span>
+                    </div>
+                    <h4 class="font-item-title text-xl text-paper-white mb-2 uppercase">Pedidos</h4>
+                    <p class="font-body-md text-on-surface-variant">3804 68-3331<br>Retiro en local o delivery</p>
+                    <div class="flex gap-2 mt-4">
+                        <span class="material-symbols-outlined text-sm text-on-surface-variant">payments</span>
+                        <span class="material-symbols-outlined text-sm text-on-surface-variant">account_balance</span>
                     </div>
                 </div>
-                <div class="dish-card">
-                    <div class="dish-media"><svg><use href="#icon-hamburguesa" /></svg></div>
-                    <div class="dish-body">
-                        <h3>Hamburguesa clásica</h3>
-                        <p>Pan, carne, lechuga, tomate, queso y salsas.</p>
-                        <div class="dish-foot"><span class="price">$950</span></div>
-                    </div>
-                </div>
-                <div class="dish-card">
-                    <div class="dish-media"><svg><use href="#icon-choripan" /></svg></div>
-                    <div class="dish-body">
-                        <h3>Choripán</h3>
-                        <p>Chorizo artesanal con chimichurri casero.</p>
-                        <div class="dish-foot"><span class="price">$650</span></div>
-                    </div>
-                </div>
-                <div class="dish-card">
-                    <div class="dish-media"><svg><use href="#icon-cerveza" /></svg></div>
-                    <div class="dish-body">
-                        <h3>Cerveza lata 350ml</h3>
-                        <p>Cerveza lager bien fría.</p>
-                        <div class="dish-foot"><span class="price">$300</span></div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center;margin-top:1.8rem">
-                <a class="btn btn-primary" href="menu.html">Ver el menú completo</a>
             </div>
         </section>
     </main>
-
-    <footer class="site-footer">
-        <div class="wrap">
-            <div>
-                <div class="footer-brand">
-                    <img src="img/logo-carro-bar-chico.jpeg" alt="Logo"
-                         onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-fallback',textContent:'EG'}))" />
-                    <span>El Gringo</span>
-                </div>
-                <p>Comida de ruta hecha al momento. Retiro en el local o delivery en la zona.</p>
-            </div>
-            <div>
-                <h4>Contacto</h4>
-                <a class="footer-link" href="https://wa.me/5493804683331" target="_blank" rel="noopener">
-                    <svg><use href="#icon-whatsapp" /></svg> 3804 68-3331
-                </a>
-                <a class="footer-link" href="#">
-                    <svg><use href="#icon-pin" /></svg> Ruta Nacional 40, Salicas
-                </a>
-            </div>
-            <div>
-                <h4>Pedidos</h4>
-                <a class="footer-link" href="menu.html">
-                    <svg><use href="#icon-clock" /></svg> Ver menú y carrito
-                </a>
-                <p>Pago en efectivo o transferencia</p>
-            </div>
+    <!-- Footer -->
+    <footer class="w-full pt-10 pb-24 md:pb-10 bg-surface-container-lowest border-t border-dashed border-secondary flex flex-col items-center gap-6 px-margin-mobile text-center">
+        <div class="font-headline-lg text-primary">CARRO BAR EL GRINGO</div>
+        <p class="font-body-md text-body-md text-on-surface-variant uppercase tracking-widest max-w-xs">Comida de ruta hecha al momento. Retiro en el local o delivery en la zona.</p>
+        <div class="flex gap-6">
+            <a class="text-on-surface-variant hover:text-flame-red transition-opacity" href="#">Instagram</a>
+            <a class="text-on-surface-variant hover:text-flame-red transition-opacity" href="#">Facebook</a>
+            <a class="text-on-surface-variant hover:text-flame-red transition-opacity" href="#">TikTok</a>
         </div>
-        <div class="footer-bottom">© <span id="year"></span> Carro Bar El Gringo — Ruta Nacional 40, Salicas.</div>
+        <p class="font-body-md text-body-md text-on-surface-variant opacity-50 mt-4">© <span id="year"></span> CARRO BAR EL GRINGO FOOD TRUCK. ALL RIGHTS RESERVED.</p>
     </footer>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container border-t-2 border-grill-smoke shadow-[0_-4px_10px_0_rgba(0,0,0,0.5)] flex justify-around items-center h-20 pb-safe px-4">
+        <a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:translate-y-1 transition-all" href="#">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+            <span class="font-label-mono text-[10px]">Menu</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant active:translate-y-1 transition-all hover:bg-grill-smoke p-2 rounded-lg" href="#info">
+            <span class="material-symbols-outlined">distance</span>
+            <span class="font-label-mono text-[10px]">Location</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant active:translate-y-1 transition-all hover:bg-grill-smoke p-2 rounded-lg" href="#info">
+            <span class="material-symbols-outlined">schedule</span>
+            <span class="font-label-mono text-[10px]">Hours</span>
+        </a>
+        <button type="button" data-cart-open class="flex flex-col items-center justify-center text-on-surface-variant active:translate-y-1 transition-all hover:bg-grill-smoke p-2 rounded-lg relative bg-transparent border-0">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span class="font-label-mono text-[10px]">Cart</span>
+            <span data-cart-badge class="absolute -top-1 -right-1 bg-flame-red text-white text-[8px] w-4 h-4 rounded-full items-center justify-center border border-charcoal-black" style="display:none">0</span>
+        </button>
+    </nav>
 
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="menu-data.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // Efecto simple de header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('py-2');
+                header.classList.remove('h-16');
+                header.classList.add('h-14');
+            } else {
+                header.classList.remove('py-2');
+                header.classList.add('h-16');
+                header.classList.remove('h-14');
+            }
+        });
+
+        // Efecto de escala al tocar una card
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mousedown', () => card.style.transform = 'scale(0.98)');
+            card.addEventListener('mouseup', () => card.style.transform = 'scale(1)');
+            card.addEventListener('mouseleave', () => card.style.transform = 'scale(1)');
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
