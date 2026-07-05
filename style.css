@@ -23,39 +23,6 @@
     --whatsapp-dark: #1da851;
 }
 
-/* Estilo de texto de marca con degradado tipo brasas/fuego */
-.brand-fire {
-    display: inline-block;
-    /* degradado de fuego pero más uniforme para legibilidad */
-    background: linear-gradient(90deg, #ffb5a0 0%, #ff7a45 30%, #ff5722 55%, #d84315 85%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: #ff7a45; /* fallback visible si background-clip no funciona */
-    text-shadow: 0 3px 12px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.02);
-    -webkit-text-stroke: 0.9px rgba(0,0,0,0.65); /* contorno para mejorar lectura */
-    font-family: 'Anton', 'Hanken Grotesk', system-ui, sans-serif;
-    font-weight: 900;
-    transform: scaleX(1.12); /* letras más anchas */
-    letter-spacing: 0.01em;
-    line-height: 0.95;
-    display: inline-block;
-}
-
-/* Glow más sutil en dispositivos pequeños */
-@media (max-width: 640px) {
-    .brand-fire { text-shadow: 0 1px 6px rgba(0,0,0,0.45); transform: scaleX(1.04); -webkit-text-stroke: 0.6px rgba(0,0,0,0.6); }
-}
-
-/* Aumentar tamaño y claridad en pantallas grandes */
-@media (min-width: 1024px) {
-    .brand-fire { font-size: clamp(1.6rem, 3.4vw, 2.6rem); }
-}
-
-/* Tamaño móvil más grande para mejor lectura */
-@media (max-width: 640px) {
-    .brand-fire { font-size: 1.05rem; }
-}
-
 * {
     box-sizing: border-box;
 }
@@ -99,6 +66,52 @@ body {
     font-variation-settings: "FILL" 1;
 }
 
+/* ---------- nombre de marca en el header (index.html y menu.html) ---------- */
+.brand-fire {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--flame-red) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ---------- chip de badge sobre las cards (ej. "🔥 EL MÁS PEDIDO") ---------- */
+.badge-chip {
+    display: inline-block;
+    background: var(--primary-container);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    width: fit-content;
+}
+
+/* ---------- imagen decorativa del carro debajo del header (index.html) ---------- */
+.hero-image-wrap {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+    .hero-image-wrap .wrap {
+        width: 100%;
+    }
+
+@media (min-width: 768px) {
+    .hero-image-wrap .wrap {
+        width: min(480px, 60%);
+    }
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.5));
+}
+
 /* ---------- header: pequeño ajuste de altura al scrollear (index.html y menu.html) ---------- */
 header.site-header {
     transition: height .2s ease, padding .2s ease;
@@ -107,39 +120,54 @@ header.site-header {
 /* ---------- tabs de categoría (menu.html) ---------- */
 .category-tabs {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    overflow-x: auto;
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
-    scrollbar-width: none;
 }
 
-    .category-tabs::-webkit-scrollbar {
-        display: none;
+@media (min-width: 768px) {
+    .category-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
     }
+
+        .category-tabs::-webkit-scrollbar {
+            display: none;
+        }
+}
 
 .category-tab {
     flex-shrink: 0;
-    padding: 0.5rem 1.1rem;
+    padding: 0.45rem 0.85rem;
     border-radius: 999px;
     border: 1.5px solid var(--grill-smoke);
     background: var(--surface-container);
     font-family: 'Space Mono', monospace;
     font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--on-surface-variant);
     cursor: pointer;
     transition: background .15s ease, border-color .15s ease, color .15s ease;
 }
 
-    .category-tab.active,
-    .category-tab:hover {
-        background: var(--primary-container);
-        border-color: var(--primary-container);
-        color: var(--paper-white);
+@media (min-width: 768px) {
+    .category-tab {
+        padding: 0.5rem 1.1rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
     }
+}
+
+.category-tab.active,
+.category-tab:hover {
+    background: var(--primary-container);
+    border-color: var(--primary-container);
+    color: var(--paper-white);
+}
 
 .category-block {
     margin-bottom: 2.5rem;
@@ -355,11 +383,32 @@ body.cart-modal-locked {
 
 .cart-item-row {
     display: grid;
-    grid-template-columns: 1fr auto auto auto;
+    grid-template-columns: auto 1fr auto auto auto;
     align-items: center;
     gap: 0.75rem;
     padding-bottom: 0.9rem;
     border-bottom: 1px dashed var(--grill-smoke);
+}
+
+.cart-item-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: var(--surface-container-low);
+    border: 1px solid var(--grill-smoke);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.cart-item-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
 }
 
 .cart-item-info {
@@ -530,30 +579,4 @@ body.cart-modal-locked {
         .cart-modal.open {
             transform: translateY(0);
         }
-}
-
-/* Imagen principal debajo del header */
-.hero-image-wrap{padding:0.6rem 0;background:transparent}
-.hero-image{display:block;max-width:480px;width:100%;margin:0 auto;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-
-/* Ajustes para escritorio (PC) - centrar y aumentar contenedores */
-@media (min-width: 1024px) {
-    .hero-image-wrap{padding:1.2rem 0 1.8rem}
-    .hero-image{max-width:720px;border-radius:14px}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 1rem}
-    main{max-width:1200px;margin:0 auto}
-    header.site-header{padding-left:2.5rem;padding-right:2.5rem;height:76px}
-    /* Hacer que el grid de platos muestre cards más grandes en pantallas amplias */
-    .dish-grid{grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1.75rem}
-    /* Centrar secciones principales y limitar ancho de contenido */
-    .max-w-2xl{max-width:900px}
-    .category-block{max-width:1100px;margin:0 auto}
-    /* Evitar que la imagen quede bajo el header fijo */
-    .hero-image-wrap{margin-top:5rem}
-}
-
-/* Móvil: desplazar la imagen para que no la tape el header fijo */
-@media (max-width: 640px) {
-    .hero-image-wrap{margin-top:4.25rem;padding-top:0.2rem}
-    .hero-image{max-width:360px}
 }

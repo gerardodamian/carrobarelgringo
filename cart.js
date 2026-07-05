@@ -7,6 +7,13 @@
    - actualiza automáticamente los contadores del carrito en el header y
      en la barra inferior de ambas páginas
    ============================================================ */
+// Formato de precios en pesos argentinos ($20.000, $950, etc.) —
+// se usa acá y en menu.js para que todos los precios del sitio
+// se vean siempre igual, sin escribirlos a mano en cada lugar.
+window.formatPrice = function (n) {
+    return '$' + new Intl.NumberFormat('es-AR').format(n);
+};
+
 (function () {
     const STORAGE_KEY = 'elgringo_cart_v1';
     const PHONE_E164 = '5493804683331'; // mismo número que los links de WhatsApp del sitio
@@ -197,19 +204,25 @@
 
         itemsEl.innerHTML = '';
         items.forEach(ci => {
+            const menuItem = findItem(ci.id);
+            const thumb = (menuItem && menuItem.img)
+                ? `<img src="${menuItem.img}" alt="${ci.name}" class="cart-item-thumb-img">`
+                : `<span class="material-symbols-outlined text-lg">restaurant</span>`;
+
             const row = document.createElement('div');
             row.className = 'cart-item-row';
             row.innerHTML = `
+        <div class="cart-item-thumb">${thumb}</div>
         <div class="cart-item-info">
           <span class="cart-item-name">${ci.name}</span>
-          <span class="cart-item-unit-price">$${ci.price} c/u</span>
+          <span class="cart-item-unit-price">${formatPrice(ci.price)} c/u</span>
         </div>
         <div class="stepper">
           <button type="button" data-act="minus" aria-label="Quitar uno">−</button>
           <span class="stepper-value">${ci.qty}</span>
           <button type="button" data-act="plus" aria-label="Agregar uno">+</button>
         </div>
-        <span class="cart-item-total">$${ci.price * ci.qty}</span>
+        <span class="cart-item-total">${formatPrice(ci.price * ci.qty)}</span>
         <button type="button" class="cart-item-remove" aria-label="Eliminar">
           <span class="material-symbols-outlined text-base">delete</span>
         </button>
@@ -234,10 +247,10 @@
         const deliveryFee = mode === 'delivery' ? DEFAULT_DELIVERY_COST : 0;
         const total = subtotal + deliveryFee;
 
-        document.getElementById('cart-subtotal').textContent = '$' + subtotal;
+        document.getElementById('cart-subtotal').textContent = formatPrice(subtotal);
         document.getElementById('cart-delivery-row').style.display = mode === 'delivery' ? 'flex' : 'none';
-        document.getElementById('cart-delivery-fee').textContent = '$' + deliveryFee;
-        document.getElementById('cart-total').textContent = '$' + total;
+        document.getElementById('cart-delivery-fee').textContent = formatPrice(deliveryFee);
+        document.getElementById('cart-total').textContent = formatPrice(total);
         document.getElementById('cart-whatsapp-btn').disabled = items.length === 0;
     }
 
@@ -255,7 +268,7 @@
         });
         const subtotal = getItems().reduce((s, i) => s + i.price * i.qty, 0);
         document.querySelectorAll('[data-cart-bar-total]').forEach(el => {
-            el.textContent = '$' + subtotal;
+            el.textContent = formatPrice(subtotal);
         });
     }
 
@@ -273,28 +286,35 @@
         const address = document.getElementById('cart-address').value.trim();
         const deliveryFee = mode === 'delivery' ? DEFAULT_DELIVERY_COST : 0;
 
+        // *texto* = negrita en WhatsApp. Usamos eso en vez de líneas de guiones
+        // para que el mensaje se vea prolijo y ordenado al llegar al chat.
         let subtotal = 0;
-        const lines = ['Pedido — Carro Bar El Gringo', '--------------------------------'];
+        const lines = [
+            '🔥 *NUEVO PEDIDO* — Carro Bar El Gringo',
+            '',
+            '*Mi pedido:*'
+        ];
         items.forEach(ci => {
-            lines.push(`${ci.name} x ${ci.qty} = $${ci.price * ci.qty}`);
+            lines.push(`• ${ci.qty}x ${ci.name} — ${formatPrice(ci.price * ci.qty)}`);
             subtotal += ci.price * ci.qty;
         });
-        lines.push('--------------------------------');
-        lines.push(`Subtotal: $${subtotal}`);
+        lines.push('');
+        lines.push(`Subtotal: ${formatPrice(subtotal)}`);
         if (mode === 'delivery') {
-            lines.push(`Delivery: $${deliveryFee}`);
-            lines.push('Dirección: ' + (address || '(sin especificar)'));
+            lines.push(`Delivery: ${formatPrice(deliveryFee)}`);
         }
-        lines.push('Total: $' + (subtotal + deliveryFee));
-        lines.push('Forma de pago: ' + (payment === 'efectivo' ? 'Efectivo' : 'Transferencia'));
-        lines.push('Modo: ' + (mode === 'delivery' ? 'Delivery' : 'Retira en el local'));
-        lines.push('Muchas gracias, por favor confirme su pedido.');
+        lines.push(`*Total: ${formatPrice(subtotal + deliveryFee)}*`);
+        lines.push('');
+        lines.push(mode === 'delivery' ? '🛵 *Delivery*' : '🏠 *Retiro en el local*');
+        if (mode === 'delivery') {
+            lines.push('📍 ' + (address || '(sin especificar)'));
+        }
+        lines.push('💳 Pago: ' + (payment === 'efectivo' ? 'Efectivo' : 'Transferencia'));
+        lines.push('');
+        lines.push('¡Muchas gracias! Quedo atento a la confirmación 🙌');
 
         const waUrl = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(lines.join('\n'))}`;
         window.open(waUrl, '_blank');
-        // Vaciar carrito y actualizar UI después de enviar el pedido
-        clearCart();
-        try { closeModal(); } catch (e) { /* ignore */ }
     }
 
     function wireOpenButtons() {

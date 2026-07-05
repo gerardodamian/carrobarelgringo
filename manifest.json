@@ -1,0 +1,21 @@
+{
+	"name": "Carro Bar El Gringo",
+	"short_name": "El Gringo",
+	"description": "Comida de ruta hecha al momento — Ruta Nacional 40, Salicas.",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#121212",
+	"theme_color": "#121212",
+	"icons": [
+		{
+			"src": "img/logo-carro-bar-chico.jpeg",
+			"sizes": "192x192",
+			"type": "image/jpeg"
+		},
+		{
+			"src": "img/logo-carro-bar-chico.jpeg",
+			"sizes": "512x512",
+			"type": "image/jpeg"
+		}
+	]
+}

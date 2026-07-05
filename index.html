@@ -9,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="img/logo-carro-bar-chico.jpeg">
+    <link rel="apple-touch-icon" href="img/logo-carro-bar-chico.jpeg">
+    <meta name="theme-color" content="#121212">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="El Gringo">
 </head>
 <body class="bg-charcoal-black text-on-surface font-body-md">
     <div class="grain-overlay"></div>
@@ -33,9 +40,9 @@
         </div>
     </header>
     <!-- Imagen decorativa del carro justo debajo del header -->
-    <div class="hero-image-wrap">
+    <div class="hero-image-wrap mt-16">
         <div class="wrap">
-            <img src="img/elcarro.png" alt="El Carro" class="hero-image" onerror="this.onerror=null;this.src='file:///C:/Users/germo/Desktop/Nueva carpeta/proyectos/propuestas/el-carro-bar/img/elcarro.png'" />
+            <img src="img/elcarro.png" alt="El Carro" class="hero-image" onerror="this.style.display='none'" />
         </div>
     </div>
     <main class="pt-16 pb-24 md:pb-0">
@@ -84,48 +91,48 @@
                 <!-- Milanesa Card -->
                 <div class="md:col-span-8 group bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-grill-smoke hover:border-primary/50 transition-all">
                     <div class="grid grid-cols-1 md:grid-cols-2 h-full">
-                        <div class="h-64 md:h-full overflow-hidden">
-                            <img alt="Milanesa con papas" class="w-full h-full w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img\WhatsApp Image 2026-05-28 at 12.06.38.jpeg">
+                        <div class="aspect-[3/4] md:aspect-auto md:h-full overflow-hidden">
+                            <img alt="Milanesa con papas" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" src="img/WhatsApp Image 2026-05-28 at 12.06.38.jpeg">
                         </div>
                         <div class="p-8 flex flex-col justify-center">
                             <span class="font-label-mono text-label-mono text-secondary mb-2">CLÁSICO RUTA 40</span>
-                            <span class="inline-block bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">🥇 ESPECIALIDAD</span>
+                            <span class="badge-chip mb-3">🥇 ESPECIALIDAD</span>
                             <h3 class="font-item-title text-3xl text-paper-white mb-4">Barroluco</h3>
                             <p class="font-body-md text-on-surface-variant mb-6">Hecho con la mejor carne de ternera, queso, tomate, jamon, queso, mayonesa y el mejor pan de miga.</p>
                             <div class="flex items-center justify-between mt-auto">
                                 <span class="font-price-tag text-4xl font-black text-orange-500">$20.000</span>
-                                <button type="button" class="btn btn-primary" data-add-to-cart="15">🛒 AGREGAR</button>
+                                <button type="button" class="btn btn-primary" data-add-to-cart="16">🛒 AGREGAR</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Hamburguesa Card -->
                 <div class="md:col-span-4 group bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-grill-smoke hover:border-primary/50 transition-all flex flex-col">
-                    <div class="h-72 overflow-hidden bg-black">
-                        <img alt="Hamburguesa clásica" class="w-full h-full w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="img\WhatsApp Image 2026-07-04 at 15.40.28 (1).jpeg">
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img alt="Hamburguesa clásica" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" src="img/WhatsApp Image 2026-07-04 at 15.40.28 (1).jpeg">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <span class="inline-block bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">🔥 EL MÁS PEDIDO</span>
+                        <span class="badge-chip mb-3">🔥 EL MÁS PEDIDO</span>
                         <h3 class="font-item-title text-2xl text-paper-white mb-2">Hamburguesa clásica + Coca cola</h3>
                         <p class="font-body-md text-on-surface-variant mb-6 text-sm">Pan artesanal, medallón de carne, lechuga capuchina, tomate y queso fundido.</p>
                         <div class="flex items-center justify-between mt-auto">
-                            <span class="font-price-tag text-3xl font-black text-orange-500">$16000</span>
-                            <button type="button" class="btn btn-primary" data-add-to-cart="6">🛒 AGREGAR</button>
+                            <span class="font-price-tag text-3xl font-black text-orange-500">$16.000</span>
+                            <button type="button" class="btn btn-primary" data-add-to-cart="17">🛒 AGREGAR</button>
                         </div>
                     </div>
                 </div>
                 <!-- Choripan Card -->
                 <div class="md:col-span-4 group bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-grill-smoke hover:border-primary/50 transition-all flex flex-col">
-                    <div class="h-72 overflow-hidden bg-black">
-                        <img alt="pizza-ternera" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="img\WhatsApp Image 2026-07-04 at 15.40.25.jpeg">
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img alt="pizza-ternera" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" src="img/WhatsApp Image 2026-07-04 at 15.40.25.jpeg">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <span class="inline-block bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">🔥 EL MÁS PEDIDO</span>
+                        <span class="badge-chip mb-3">🔥 EL MÁS PEDIDO</span>
                         <h3 class="font-item-title text-2xl text-paper-white mb-2">Pizza de Ternera</h3>
                         <p class="font-body-md text-on-surface-variant mb-6 text-sm">La mejor pizza combinada con la carne mas tierna y sabrosa.</p>
                         <div class="flex items-center justify-between mt-auto">
                             <span class="font-price-tag text-3xl font-black text-orange-500">$12.500</span>
-                            <button type="button" class="btn btn-primary" data-add-to-cart="9">🛒 AGREGAR</button>
+                            <button type="button" class="btn btn-primary" data-add-to-cart="18">🛒 AGREGAR</button>
                         </div>
                     </div>
                 </div>

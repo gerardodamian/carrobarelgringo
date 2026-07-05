@@ -31,19 +31,33 @@ document.addEventListener('DOMContentLoaded', () => {
     MENU_DATA.forEach(item => {
         const grid = document.getElementById('grid-' + item.cat);
         const card = document.createElement('div');
+        // Misma estructura y clases que las cards de index.html: foto arriba
+        // (o ícono si el producto todavía no tiene foto propia), badge opcional,
+        // precio grande en naranja y botón "🛒 AGREGAR".
         card.className = 'menu-card group bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-grill-smoke hover:border-primary/50 transition-all flex flex-col';
+
+        const media = item.img
+            ? `<div class="aspect-[3/4] overflow-hidden">
+           <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+         </div>`
+            : `<div class="menu-card-media h-48 flex items-center justify-center bg-surface-container-low">
+           <svg class="w-24 h-24 text-primary"><use href="#${item.icon}"/></svg>
+         </div>`;
+
+        const badge = item.badge
+            ? `<span class="badge-chip mb-3">${item.badge}</span>`
+            : '';
+
         card.innerHTML = `
-      <div class="menu-card-media h-48 flex items-center justify-center bg-surface-container-low">
-        <svg class="w-24 h-24 text-primary"><use href="#${item.icon}"/></svg>
-      </div>
+      ${media}
       <div class="p-6 flex flex-col flex-grow">
+        ${badge}
         <h3 class="font-item-title text-xl text-paper-white mb-2">${item.name}</h3>
         <p class="font-body-md text-on-surface-variant mb-4 text-sm flex-grow">${item.desc}</p>
         <div class="flex items-center justify-between gap-3 mt-auto">
-          <span class="font-price-tag text-xl text-secondary">$${item.price}</span>
+          <span class="font-price-tag text-2xl font-black text-orange-500">${window.formatPrice(item.price)}</span>
           <button type="button" class="btn btn-primary add-btn" data-add-to-cart="${item.id}">
-            <span class="material-symbols-outlined text-base">add_shopping_cart</span>
-            Agregar
+            🛒 AGREGAR
           </button>
         </div>
       </div>

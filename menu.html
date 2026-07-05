@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="img/logo-carro-bar-chico.jpeg">
+    <link rel="apple-touch-icon" href="img/logo-carro-bar-chico.jpeg">
+    <meta name="theme-color" content="#121212">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="El Gringo">
 </head>
 <body class="bg-charcoal-black text-on-surface font-body-md">
     <div class="grain-overlay"></div>
@@ -75,7 +82,7 @@
         <div class="flex items-center gap-3">
             <a href="index.html" class="flex items-center gap-3">
                 <img alt="El Gringo Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvK1BujoKjIgYX10p5iEyVrFHVpiOPGehXgnRKGQ_gxO7-ij-kiAsqDVMl-KWAITHF7EL01S-EHm85F4QNW7CEQYnu_Rxtr6NVghGAvsa063ef_vD2AvMTxJAE0_-0A7NTHSSJfDX7C4Rb2KpJoGovnm-PPsd7b9DizdwEEe-Rq1YVSQYJa8WGLKTYK309XbIWxvUCHk28BulLkNflMerFt95ZrddLtl7hrRWKoM3IS8N46Endv91zSnxg">
-                <span class="font-display-hero text-headline-lg-mobile text-primary tracking-tighter">CARRO BAR EL GRINGO</span>
+                <span class="font-display-hero text-headline-lg-mobile brand-fire tracking-tighter">CARRO BAR EL GRINGO</span>
             </a>
         </div>
         <div class="hidden md:flex gap-8 items-center">
@@ -147,28 +154,5 @@
     <script src="menu-data.js"></script>
     <script src="cart.js"></script>
     <script src="menu.js"></script>
-    <script>
-        // Después de abrir un enlace de WhatsApp, vaciar el carrito, re-renderizar y cerrar el drawer si existe.
-        // Escucha clicks en enlaces que apunten a wa.me y realiza la limpieza poco después.
-        document.addEventListener('click', function (e) {
-            const anchor = e.target.closest && e.target.closest('a[href]');
-            if (!anchor) return;
-            try {
-                const href = anchor.getAttribute('href') || '';
-                if (/^https?:\/\/(api\.)?wa\.me\/|wa\.me\//i.test(href)) {
-                    // Esperar un momento para permitir que el navegador abra la URL, luego limpiar estado.
-                    setTimeout(function () {
-                        try {
-                            if (typeof cart === 'object' && cart) {
-                                Object.keys(cart).forEach(function (k) { delete cart[k]; });
-                            }
-                        } catch (_) { /* ignore */ }
-                        try { if (typeof renderCart === 'function') renderCart(); } catch (_) { /* ignore */ }
-                        try { if (typeof closeDrawer === 'function') closeDrawer(); } catch (_) { /* ignore */ }
-                    }, 200);
-                }
-            } catch (_) { /* ignore */ }
-        }, true);
-    </script>
 </body>
 </html>
